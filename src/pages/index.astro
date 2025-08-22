@@ -1,7 +1,119 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const pageTitle = "Home Page";
+import '../styles/pages/home.css';
+const pageTitle = "HOME - Economia Solidária";
 ---
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog's subtitle</h2>
+  <header>
+    <div class="logo-container">
+      <img src="https://yata-apix-534d11ad-43bb-4e41-ac1e-3bf276e85863.s3-object.locaweb.com.br/0089d1392f5644eab05131f653865a05.png" alt="Economia Solidária" width="150">
+    </div>
+    <h1 class="site-title">ECONOMIA SOLIDÁRIA<br>NOVAS REGRAS</h1>
+    
+    <nav>
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/artigos-novo">ARTIGOS</a></li>
+        <li><a href="/autora-livros">AUTORA & LIVROS</a></li>
+        <li><a href="/referencias">REFERÊNCIAS</a></li>
+        <li><a href="/imprensa">IMPRENSA</a></li>
+        <li><a href="/iempresa">IEmpresa</a></li>
+        <li><a href="/contato">CONTATO</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about-section">
+      <h2>Rosalvi Monteagudo</h2>
+      
+      <div class="profile-container">
+        <div class="profile-text">
+          <p>Contista, pesquisadora, professora, bibliotecária, assistente agropecuária e articulista na internet. Mestre em cooperativismo pelo CEDOPE/UNISINOS, em São Leopoldo – RS.</p>
+          <p>Foi editora responsável do boletim informativo do ICA/SAA, São Paulo, no qual criou o espaço "Repensando o Cooperativismo". Organiza cursos, conferências, estandes em feiras e já foi voluntária na Pastoral da Criança.</p>
+        </div>
+        <img src="https://yata-apix-534d11ad-43bb-4e41-ac1e-3bf276e85863.s3-object.locaweb.com.br/fb0b5505294a43d5bb08c9c7952c80b3.jpg" alt="Rosalvi Monteagudo" class="profile-image">
+      </div>
+      
+      <div class="testimonials">
+        <div class="testimonial">
+          <p><strong>"Forum social mundial 2002 a 2005 no qual apresentou a palestra dos principios cooperativistas."</strong></p>
+          <p>Benedito Luiz e Silva</p>
+        </div>
+        
+        <div class="testimonial">
+          <p><strong>"A Rosalvi, incansável benemérita, é dessas pessoas estoicas, com avassaladora vontade para incutir na sociedade a ideia e boas práticas do cooperativismo e autogestão..."</strong></p>
+          <p><em>Ralph Peter (colunista)<br>Jornal Empresa & Negócios</em></p>
+        </div>
+        
+        <div class="testimonial">
+          <p><strong>"A articulista Rosalvi Monteagudo nos oferece mais uma luz ao pós-pandemia e também uma esperança diante dos prognósticos caóticos dos economistas de plantão"</strong></p>
+          <p><em>Aurici Silva Dias<br>Mococa 24 horas</em></p>
+        </div>
+        
+        <div class="testimonial">
+          <p><strong>"Uma nova abordagem para a economia solidaria, trazendo soluções socioeconômicas para as sociedades cooperativas"</strong></p>
+          <p><em>Amazon</em></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform-section">
+      <h3>"PLATAFORMA DE ESTUDOS DO BRASIL, PARA ENEM E CONCURSOS"</h3>
+      
+      <a href="https://www.passeidireto.com/arquivo/94268468/listagem-de-livro-de-cooperativismo" class="platform-button" target="_blank">
+        Acesso à "PLATAFORMA DE ESTUDOS DO BRASIL, PARA ENEM E CONCURSOS". O livro "Economia Solidária – Novas Regras" (2ª. Edição - 2018 – Editora Scortecci) foi uma das obras indicadas pelo ENEM em 2021 como Bibliografia complementar e no Instituto Unibanco (Observatório de Educação Ensino Médio e Gestão), um dos destaques é o artigo de Rosalvi "Desigualdade social na pandemia.
+      </a>
+      
+      <div class="book-highlight">
+        <a href="https://www.congressodireitoesaude.com.br/livros-sobre-terceiro-setor-2/" class="platform-button" target="_blank">
+          O livro "ADMINISTRAÇÃO E CONTABILIZAÇÃO/ACCOUNTABILITY PARA O TERCEIRO SETOR", de Rosalvi Monteagudo, está entre os 10 EXCELENTES LIVROS SOBRE O TERCEIRO SETOR.
+        </a>
+      </div>
+    </section>
+
+    <section class="videos-section">
+      <h3>CONHEÇA MELHOR A ECONOMIA SOLIDÁRIA</h3>
+      <p>Rosalvi Monteagudo fala sobre a Economia Solidária no Youtube</p>
+      
+      <div class="video-grid">
+        <div class="video-wrapper">
+          <div class="video-container">
+            <iframe src="//www.youtube.com/embed/W45gDzGDDHY" allowfullscreen></iframe>
+          </div>
+        </div>
+        
+        <div class="video-wrapper">
+          <div class="video-container">
+            <iframe src="//www.youtube.com/embed/XOI14WvyLWg" allowfullscreen></iframe>
+          </div>
+        </div>
+        
+        <div class="video-wrapper">
+          <div class="video-container">
+            <iframe src="//www.youtube.com/embed/t_aw08pfZDQ" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      
+      <div class="youtube-channel">
+        <p><strong>CLIQUE NO LINK ABAIXO E CONHEÇA O CANAL COM TODOS OS VÍDEOS NO YOUTUBE</strong></p>
+        <a href="https://www.youtube.com/channel/UCK6Hs8gfu1V4IgGuMIHaqPQ" target="_blank" class="social-link">Canal do YouTube</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="https://yata-apix-534d11ad-43bb-4e41-ac1e-3bf276e85863.s3-object.locaweb.com.br/27851b1fddc64a8c8800c2ddddc4eb6e.png" alt="Economia Solidária">
+    </div>
+    
+    <div class="contact-info">
+      <p>Rosalvi Monteagudo<br>rosalvi@econsolidaria.org</p>
+    </div>
+    
+    <div class="copyright">
+      <p>Economia Solidária - Rosalvi Monteagudo © 2019</p>
+    </div>
+  </footer>
 </BaseLayout>
