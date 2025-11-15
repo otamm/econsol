@@ -1,15 +1,101 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import BlogPostLink from "../components/BlogPostLink.astro";
 import { getCollection } from "astro:content";
 
+const pageTitle = "Artigos de Economia Solidária";
+
+// 1. Get all posts
 const allPosts = await getCollection("blog");
-const pageTitle = "STORY OF DA STRUGGAH...";
+
+// 2. Sort posts by date (newest first)
+allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// 3. Group posts by year
+const postsByYear = allPosts.reduce((acc, post) => {
+  const year = post.data.pubDate.getFullYear();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(post);
+  return acc;
+}, {} as Record<string, typeof allPosts>);
+
+// 4. Get list of years sorted descending
+const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-  <h1>My Astro Learning Blog</h1>
-  <p>This is where I will post about my journey learning Astro.</p>
-  <ul>
-    {allPosts.map((post: any) => <BlogPostLink url={`/posts/${post.id}`} title={post.data.title} />)}
-  </ul>
+  <main>
+    <h1>{pageTitle}</h1>
+    
+    <div class="blog-container">
+      {years.map((year) => (
+        <section class="year-section">
+          <h2 class="year-header">{year}</h2>
+          <ul class="post-list">
+            {postsByYear[year].map((post) => (
+              <li class="post-item">
+                <a href={`/posts/${post.id}`} class="post-link">
+                  <span class="post-date">
+                    {post.data.pubDate.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}
+                  </span>
+                  - 
+                  <span class="post-title">{post.data.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  </main>
 </BaseLayout>
+
+<style>
+  .blog-container {
+    padding: 1rem;
+  }
+  .year-header {
+    border-bottom: 2px solid #4c1d95;
+    color: #4c1d95;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .post-list {
+    list-style: none;
+    padding: 0;
+  }
+  .post-item {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+  }
+  .post-link {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  .post-link:hover {
+    background-color: #ffe599;
+    color: #000;
+  }
+  .post-date {
+    color: #666;
+    font-family: monospace;
+    font-size: 0.9em;
+  }
+  /* Dark mode support */
+  :global(.dark) .post-link {
+    color: #e0e0e0;
+  }
+  :global(.dark) .post-link:hover {
+    background-color: #4c1d95;
+    color: #fff;
+  }
+  :global(.dark) .year-header {
+    border-bottom-color: #ffe599;
+    color: #ffe599;
+  }
+</style>

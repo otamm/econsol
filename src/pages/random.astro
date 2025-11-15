@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+
+// Fetch all posts
+const posts = await getCollection("blog");
+
+// Select a random index
+const randomIndex = Math.floor(Math.random() * posts.length);
+const randomPost = posts[randomIndex];
+
+// Redirect to the selected post
+return Astro.redirect(`/posts/${randomPost.id}`);
+---

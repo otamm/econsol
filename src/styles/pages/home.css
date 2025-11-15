@@ -4,6 +4,12 @@ header {
   text-align: center;
 }
 
+header.dark {
+  background-color: #000000;
+  padding: 1rem;
+  text-align: center;
+}
+
 .logo-container {
   display: flex;
   justify-content: center;
