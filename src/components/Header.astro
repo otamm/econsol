@@ -6,11 +6,7 @@ import '../styles/components/nav.css';
 ---
 <header>
   <nav>
-    <div class="hamburger">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
-    </div>
+    <!-- Remove hamburger menu -->
     <ThemeToggleIcon />
     <br/>
     <ImgLogo />
@@ -18,9 +14,3 @@ import '../styles/components/nav.css';
     <Navigation />
   </nav>
 </header>
-
-<script is:inline>
-  document.querySelector('.hamburger')?.addEventListener('click', () => {
-  document.querySelector('.nav-links')?.classList.toggle('expanded');
-});
-</script>
