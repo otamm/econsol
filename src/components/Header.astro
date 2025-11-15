@@ -19,7 +19,7 @@ import '../styles/components/nav.css';
   </nav>
 </header>
 
-<script>
+<script is:inline>
   document.querySelector('.hamburger')?.addEventListener('click', () => {
   document.querySelector('.nav-links')?.classList.toggle('expanded');
 });
